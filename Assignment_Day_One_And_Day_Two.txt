@@ -1,0 +1,15 @@
+1)Implement a query to get a list of all students and how many courses each student is enrolled?
+
+
+"SELECT MAX(student.student_name),COUNT(student_courses.course_id) AS count_of_subject
+FROM student LEFT OUTER JOIN student_courses ON 
+student.student_id = student_courses.student_id
+GROUP BY student.student_id "
+
+
+2)Implement a query to get list of all teachers and how many students they teach. Sort the list in descending order of the number of students a teacher teaches.
+
+"SELECT MAX(t.teacher_name) TEACHER_NAME,COUNT(sc.`student_id`) NO_OF_STUDENTS FROM `student_courses` sc 
+LEFT OUTER JOIN `course` c ON sc.`course_id`=c.`course_id` 
+RIGHT OUTER JOIN `teacher` t ON t.`teacher_id` = c.`teacher_id` 
+GROUP BY t.teacher_id ORDER BY NO_OF_STUDENTS DESC"
