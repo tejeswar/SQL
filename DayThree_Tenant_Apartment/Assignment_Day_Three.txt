@@ -1,0 +1,4 @@
+3)TO get a list of tenants who are renting more than one apartment
+
+SELECT  MAX(t.`TenantName`) FROM `tenantapartments` ta,`tenants` t 
+WHERE ta.`TenantId`=t.`TenantId` GROUP BY t.`TenantId` HAVING COUNT(t.`TenantId`) > 1
